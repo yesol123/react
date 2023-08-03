@@ -1,0 +1,22 @@
+html{font-size: 24px; line-height: 2;}
+
+.wrap{
+  display: flex;
+  justify-content: space-between;
+}
+
+header{
+  width: 15%;
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  nav{
+    a{color:aliceblue; display: block; font-size: .8rem;}
+  }
+}
+main{
+  width: 80%; height: 100vh;
+  overflow: auto;
+}
