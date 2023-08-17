@@ -1,38 +1,52 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: 'Ramche';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Ramche.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  font-family: 'Ramche';
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+article{
+  width:50%; margin:50px auto;
+  padding:50px; border:1px solid cornflowerblue;
+  border-radius: 30px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+section{
+  width:50%; margin:50px auto;
+  padding:50px; border:1px solid cornflowerblue;
+  background-color: aliceblue;
+  border-radius: 30px;
+}
+
+button{
+  font-family: 'Ramche';
+  margin-left: 10px;
+  padding: 10px;
+  border-radius: 20px;
+  border: 0;
+  background-color: cornflowerblue;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+input{
+  font-family: 'Ramche';
+  width:100%; margin:5px 0;
+  padding:10px;
 }
+ul{padding: 0;}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+li{ 
+  margin: 0;
+  padding: 10px; 
+  border-bottom:2px dashed cornflowerblue;
+  list-style-type: none;
+}
+*{box-sizing: border-box;}
+
+.active{
+  display: none;
 }
