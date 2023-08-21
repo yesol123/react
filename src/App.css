@@ -1,38 +1,50 @@
-.App {
+
+@font-face {
+  font-family: 'intelone-mono-font-family-regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/intelone-mono-font-family-regular.woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+*{box-sizing: border-box;}
+html{
+  font-size: 24px;}
+header{
+  background-color: #000;
+  padding:20px 0;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header a{
+  color:white; padding: 0 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+article{ 
+  width: 50%; margin: 100px auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+article h2{  border-bottom: 2px solid black;
+
+}
+
+a{
+  text-decoration: none;
+  color:#333;
+}
+
+li{
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.total{
+  background-color: yellowgreen;
+  padding: 50px 0;
+  text-align: center;
   color: white;
+  font-size: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input,textarea{
+  width: 100%; padding: 10px;
 }
