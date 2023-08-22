@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios'
-import {HashRouter,Routes,Route,Link} from 'react-router-dom'
+import {BrowserRouter,Routes,Route,Link} from 'react-router-dom'
 import List from './component/List';
 import Insert from './component/Insert';
 import Context from './Context';
+import Modify from './component/Modify';
 
 function App() {
   // axios.put('http://localhost:3030/history/1',
@@ -16,7 +17,7 @@ function App() {
   
   return (
     <Context>
-    <HashRouter>
+    <BrowserRouter>
       <header>
         <nav>
           <Link to ="/"> 홈 리스트 </Link>
@@ -28,10 +29,10 @@ function App() {
         <Routes>
           <Route path = "/" element={<List/>}/>
           <Route path = "/insert" element = {<Insert/>}/>
-          {/*<Route path="/modify" element ={<List/>}/>*/}
+          <Route path="/modify" element ={<Modify/>}/>
         </Routes>
       </main>
-    </HashRouter>
+    </BrowserRouter>
     </Context>
   );
 }
