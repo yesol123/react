@@ -59,6 +59,7 @@ main{
     }
   }
   .movie{
+    text-align: center;
     h2{ color: white;}
     ul{
       grid-gap: 20px;
@@ -73,6 +74,7 @@ main{
     }
   }
   .tv{
+    text-align: center;
     h2{ color: white;}
     ul{
       grid-gap: 20px;
@@ -83,6 +85,16 @@ main{
     }
   }
 
+
+  .more{
+    border: 3px solid white;
+    color: white;
+    font-size: 16px;
+    background-color: black;
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+  }
   
 .swiper {
 }

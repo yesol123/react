@@ -2,11 +2,16 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import axios from 'axios'
 
+
+
 function Movies() {
 
 
     const [movieDataP, setMovieDataP] = useState([]);
     const [movieDataT, setMovieDataT] = useState([]);
+    const [searchQuery,setSearchQuery] = useState("");
+    const [more,setMore] = useState(1);
+    
     
     
         const dbData = axios.create({
@@ -35,20 +40,45 @@ function Movies() {
             })
     }, [])
 
+
+
+    //검색어를 기반으로 Movie를 필터링 하는 함수 
+    const filtermovie = (movies) => {
+        if(searchQuery === ""){
+            return movies; // 검색어가 없을 땐 모든 movie를 표시
+        }
+        return movies.filter((movie)=>
+        movie.title.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+    };
+
+
+    //더보기 버튼 
+    const morethigs = function(){
+        const newCount = more + 1;
+        dbData.get(`/movie/popular?page=${newCount}`)
+        .then((res)=>{
+            const moredata = res.data.results;
+            setMovieDataT([...movieDataP,...moredata]);
+            setMore(newCount);
+        })
+    }
+
     return (
         <>
             <h1>Movies</h1>
             <section className='search'>
                 <div>
                     <input type="text" 
-                    placeholder='Enter keyword' />
-                    <button>search</button>
+                    placeholder='Enter keyword' value={searchQuery}
+                    onChange={(e)=>setSearchQuery(e.target.value)} />
+                    <button onClick={()=>setSearchQuery("")}>search</button>
                 </div>
             </section>
             <section className='movie'>
                 <ul>
                     {
-                        movieDataP.map((e) => (
+                        filtermovie(movieDataP).map((e) => (
                             <li key={e.id}>
                                 <img src={`https://image.tmdb.org/t/p/w200${e.poster_path}`} />
                                 <h3>{e.title}</h3>
@@ -62,7 +92,7 @@ function Movies() {
 
                 <ul>
                     {
-                        movieDataT.map((e) => (
+                        filtermovie(movieDataT).map((e) => (
                             <li key={e.id}>
                                 <img src={`https://image.tmdb.org/t/p/w200${e.poster_path}`} />
                                 <h3>{e.title}</h3>
@@ -70,9 +100,13 @@ function Movies() {
                         ))
                     }
                 </ul>
+            <div>
+            <button className='more' onClick={morethigs}>Load more</button>
+            </div>
             </section>
         </>
     )
 }
 
 export default Movies
+

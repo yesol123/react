@@ -61,8 +61,8 @@ function App() {
           </div>
           <div className='header2'>
           <Link to ="/"> HOME </Link>
-          <Link to ="/movies"> Movies</Link>
-          <Link to ="/tvs"> TV series</Link>
+          <Link to ="/Movies"> Movies</Link>
+          <Link to ="/Tvs"> TV series</Link>
           </div>
         </nav>
       </header>
@@ -70,8 +70,8 @@ function App() {
       <main>
         <Routes>
           <Route path='/'  element={<List/>}/>
-          <Route path ='/movies' element={<Movies/>}/>
-          <Route path ='/tvs' element={<Tvs/>}/>
+          <Route path ='/Movies' element={<Movies/>}/>
+          <Route path ='/Tvs' element={<Tvs/>}/>
         </Routes>
       </main>
       </BrowserRouter>
