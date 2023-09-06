@@ -4,6 +4,7 @@ import{Link,BrowserRouter,Route,Routes,useParams} from 'react-router-dom';
 import List from './component/List';
 import Movies from './component/Movies';
 import Tvs from './component/Tvs';
+import Detail from './component/Detail';
 import axios from 'axios';
 
 
@@ -72,6 +73,7 @@ function App() {
           <Route path='/'  element={<List/>}/>
           <Route path ='/Movies' element={<Movies/>}/>
           <Route path ='/Tvs' element={<Tvs/>}/>
+          <Route path ='/:type/:id' element={<Detail/>}/>
         </Routes>
       </main>
       </BrowserRouter>

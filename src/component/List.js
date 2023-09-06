@@ -20,6 +20,7 @@ export default function List() {
     const [movieDataT, setMovieDataT] = useState([]);
     const [tvDataP,setTvDataP] =useState([]);
     const [tvDataT,setTvDataT] =useState([]);
+    const [thumb, setThumb] = useState([]);
 
 
 
@@ -29,7 +30,16 @@ export default function List() {
     })
 
 
-
+    //썸네일
+    useEffect(()=>{
+        dbData
+        .get('/movie/popular')
+        .then(res=>{
+            const thumb1 = res.data;
+          setThumb(thumb1.results);
+        })
+      },[])
+    
 
     //트랜딩 무비
     useEffect(function(){
@@ -73,6 +83,36 @@ export default function List() {
 
     return (
         <>
+        <article className='mainD'>
+        <Swiper className="mySwiper1">
+        {
+            thumb.map((v)=>(
+                <SwiperSlide>
+              <div className='Hmovie_con' key={v.id} 
+                   style={{'background': `url('https://image.tmdb.org/t/p/original/${v.backdrop_path}')`}}>
+                <article className='Hmovie_article'>
+                  <div className='flex'>
+                    <div className='column'>
+                      <div className='Hmovie-title'>{v.title}</div>
+                      <div className='Hmovie-overview'>{v.overview}</div>
+                      <div className='flex'>
+                        <button className='now-bt'>Watch now</button>
+                        <button className='trailer-bt'>Watch trailer</button>
+                      </div>
+                    </div>
+                    <img className="poster" src={`https://image.tmdb.org/t/p/w300${v.poster_path}`}/>
+                  </div>
+                </article>
+              </div>
+             
+              </SwiperSlide>
+            ))
+          }
+          </Swiper>
+        </article>
+        
+
+
 
         <section className='movie'>
             <h2>Trending Movies</h2>
@@ -80,7 +120,7 @@ export default function List() {
             <ul className='mySwiper'>
                 {
                     movieDataP.map((e)=>(
-                        <SwiperSlide>
+                        <SwiperSlide style={{"margin":"20px"}}>
                         <li key={e.id}>
                             <img src={`https://image.tmdb.org/t/p/w200${e.poster_path}`}/>
                             <h3>{e.title}</h3>
@@ -98,7 +138,7 @@ export default function List() {
             <ul>
                 {
                     movieDataT.map((e)=>(
-                        <SwiperSlide>
+                        <SwiperSlide style={{"margin":"20px"}} >
                         <li key={e.id}>
                             <img src={`https://image.tmdb.org/t/p/w200${e.poster_path}`}/>
                             <h3>{e.title}</h3>
@@ -117,8 +157,8 @@ export default function List() {
             <ul>
                 {
                     tvDataP.map((e)=>(
-                        <SwiperSlide>
-                        <li key={e.id}>
+                        <SwiperSlide style={{"margin":"20px"}}>
+                        <li key={e.id} >
                             <img src={`https://image.tmdb.org/t/p/w200${e.poster_path}`}/>
                             <h3>{e.name}</h3>
                         </li>
@@ -136,7 +176,7 @@ export default function List() {
             <ul>
                 {
                     tvDataT.map((e)=>(
-                        <SwiperSlide>
+                        <SwiperSlide style={{"margin":"20px"}}>
                         <li key={e.id}>
                             <img src={`https://image.tmdb.org/t/p/w200${e.poster_path}`}/>
                             <h3>{e.name}</h3>

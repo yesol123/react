@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+
+import {Link,BrowserRouter,Routes,Route} from 'react-router-dom';
 import axios from 'axios'
 
 
@@ -80,6 +82,7 @@ const filtertv = (tvlar) => {
                             <li key={e.id}>
                                 <img src={`https://image.tmdb.org/t/p/w200${e.poster_path}`} />
                                 <h3>{e.name}</h3>
+                                <Link to ={`/tv/${e.id}`} className='click'>자세히보기</Link>
                             </li>
                         ))
                     }
@@ -95,6 +98,7 @@ const filtertv = (tvlar) => {
                             <li key={e.id}>
                                 <img src={`https://image.tmdb.org/t/p/w200${e.poster_path}`} />
                                 <h3>{e.name}</h3>
+                                <Link to ={`/tv/${e.id}`} className='click'>자세히보기</Link>
                             </li>
                         ))
                     }

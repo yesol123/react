@@ -1,7 +1,8 @@
 import React from 'react'
-import { useEffect, useState } from 'react';
+import { useEffect, useState} from 'react';
+import {Link,BrowserRouter,Routes,Route} from 'react-router-dom';
 import axios from 'axios'
-
+import Detail from './Detail';
 
 
 function Movies() {
@@ -12,8 +13,7 @@ function Movies() {
     const [searchQuery,setSearchQuery] = useState("");
     const [more,setMore] = useState(1);
     
-    
-    
+
         const dbData = axios.create({
             baseURL: 'https://api.themoviedb.org/3',
             params: { api_key: 'f89a6c1f22aca3858a4ae7aef10de967' }
@@ -30,6 +30,7 @@ function Movies() {
                 setMovieDataP(moviePop.results);
             })
     }, [])
+    
     //탑 무비
     useEffect(function () {
         dbData
@@ -82,6 +83,7 @@ function Movies() {
                             <li key={e.id}>
                                 <img src={`https://image.tmdb.org/t/p/w200${e.poster_path}`} />
                                 <h3>{e.title}</h3>
+                                <Link to ={`/movie/${e.id}`} className='click'>자세히보기</Link>
                             </li>
                         ))
                     }
@@ -96,6 +98,7 @@ function Movies() {
                             <li key={e.id}>
                                 <img src={`https://image.tmdb.org/t/p/w200${e.poster_path}`} />
                                 <h3>{e.title}</h3>
+                                <Link to ={`/movie/${e.id}`} className='click'>자세히보기</Link>
                             </li>
                         ))
                     }
