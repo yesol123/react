@@ -1,0 +1,26 @@
+
+nav{
+  text-align: center;
+  a{
+    font-size: 36px;
+    text-align: center;
+    margin: 0 auto;}
+}
+
+main{ display: flex;
+  justify-content: space-around;
+  div{ 
+  display: flex;
+  flex-direction: column;
+  
+    h2{ text-align: center;
+    margin: 30px 0;}
+    img{
+      height: 200px;
+      width: 200px;
+    }
+    a{text-align: center;
+    margin-top: 30px;}
+  }
+}
+  
