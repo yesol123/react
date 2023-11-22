@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&display=swap');
+
+
+*{
+  font-family: 'Maven Pro', sans-serif;
+}
+
+nav{
+  display: flex;
+  justify-content: space-around;
+  background-color: cornflowerblue;
+  padding:20px;
+  a{
+    color: aliceblue;
+    font-size: 20px;
+  }
+}
+
+main{
+  width: 50%; margin:0 auto;
+
+}
+
+.popup{
+  padding: 100px;
+  background-color: yellow;
+  display: none;
+}
+.popup.active{
+  display: block;
+}
+
+.scroll{
+  margin-top: 400px;
+}
+
+.scroll figure{
+  background-color: rgb(221, 236, 187);
+  border-radius: 50%;
+  height: 300px;
+  width: 300px;
+  margin: 100px 0;
+  transform: translateY(-100%);
+  transition: 1s;
+  text-align: center;
+}
+
+.scroll figure.active{
+  transform: translateY(0%);
+}
